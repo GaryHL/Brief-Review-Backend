@@ -22,3 +22,9 @@ Route::get('/briefs', 'App\Http\Controllers\BriefController@index'); // mostrar 
 Route::post('/briefs/create', 'App\Http\Controllers\BriefController@store'); // ruta para crear
 Route::put('/briefs/update/{id}', 'App\Http\Controllers\BriefController@update'); // ruta para editar un registro
 Route::delete('/briefs/delete/{id}', 'App\Http\Controllers\BriefController@destroy'); // ruta para editar
+
+Route::get('/posts', 'App\Http\Controllers\PostsController@index'); // mostrar todos los briefs
+Route::post('/posts/create', 'App\Http\Controllers\PostsController@store'); // ruta para crear
+Route::put('/posts/update/{id}', 'App\Http\Controllers\PostsController@update'); // ruta para editar un registro
+Route::get('/posts/show/{id}', 'App\Http\Controllers\PostsController@show'); // ruta para editar un registro
+Route::delete('/posts/delete/{id}', 'App\Http\Controllers\PostsController@destroy'); // ruta para editar
