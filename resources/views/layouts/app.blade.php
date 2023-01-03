@@ -15,7 +15,7 @@
 
     <nav class="flex py-5 bg-indigo-500 text-white">
         <div class="w-1/2 px-12 mr-auto">
-            <p class="text-2xl font-bold">My application</p>
+            <p class="text-2xl font-bold">Code Review</p>
         </div>
         <ul class="w-1/2 px-16 ml-auto flex justify-end pt-1">
             @if(auth()->check())
