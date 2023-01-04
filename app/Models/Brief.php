@@ -8,5 +8,5 @@ use Illuminate\Database\Eloquent\Model;
 class Brief extends Model
 {
     use HasFactory;
-    protected $fillable = ['title', 'description', 'requirements', 'cover_brief', 'technology', 'badges', 'users_completed', 'difficulty', 'type' ];
+    protected $fillable = ['title', 'description', 'requirements', 'cover_brief', 'technology','difficulty' ];
 }

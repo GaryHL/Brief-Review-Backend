@@ -40,10 +40,14 @@ class BriefController extends Controller
         $brief = new Brief();
         $brief -> tile = $request -> title;
         $brief -> description = $request -> requirements;
-        $brief -> cover_brief = $request -> cover_brief;
+
+        $file = $request->file('img_url');
+        $destinationPath = 'images/briefs/';
+        $filename = time().'-'.$file->getClientOriginalName();
+        $uploadSuccess = $request -> file('img_url') -> move($destinationPath,$filename);
+        
+        $brief -> cover_brief = $destinationPath.$filename;
         $brief -> technology = $request -> technology;
-        $brief -> badges = $request -> badges;
-        $brief -> users_completed = $request -> users_completed;
         $brief -> difficulty = $request -> difficulty;
         $brief -> type = $request -> type;
 

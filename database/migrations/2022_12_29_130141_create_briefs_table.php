@@ -20,10 +20,7 @@ return new class extends Migration
             $table-> string('requirements');
             $table-> string('cover_brief');
             $table-> string('technology');
-            $table-> string('badges');
-            $table-> string('users_completed');
-            $table-> float('difficulty');
-            $table-> string('type');
+            $table-> integer('difficulty');
             $table->timestamps();
         });
     }
