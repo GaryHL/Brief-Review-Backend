@@ -5,8 +5,9 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Brief extends Model
+class Comment extends Model
 {
     use HasFactory;
-    protected $fillable = ['title', 'description', 'requirements', 'cover_brief', 'technology','difficulty' ];
+    protected $fillable = ['description','img_url','date'];
+
 }
