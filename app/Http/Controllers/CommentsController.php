@@ -1,11 +1,11 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Models\Post;
 
 use Illuminate\Http\Request;
+use App\Models\Comment;
 
-class PostsController extends Controller
+class CommentsController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,8 +14,8 @@ class PostsController extends Controller
      */
     public function index()
     {
-        $post = Post::all();
-        return $post;
+        $comments = Comment::all();
+        return $comments;
     }
 
     /**
@@ -23,9 +23,9 @@ class PostsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create(Request $request)
+    public function create()
     {
-
+        //
     }
 
     /**
@@ -36,19 +36,12 @@ class PostsController extends Controller
      */
     public function store(Request $request)
     {
-        $brief = new Post();
-        $brief ->description = $request -> description;
+        $comment = new Comment();
+        $comment -> description = $request -> description;
+        $comment -> img_url = $request -> img_url;
+        $comment -> date = $request -> date;
 
-        $file = $request->file('img_post');
-        $destinationPath = 'images/posts/';
-        $filename = time().'-'.$file->getClientOriginalName();
-        $uploadSuccess = $request -> file('img_post') -> move($destinationPath,$filename);
-        
-        $brief ->img_post = $destinationPath.$filename;
-        $brief ->creator = $request -> creator;
-        $brief -> date = $request -> date;
-
-        $brief -> save();
+        $comment -> save();
     }
 
     /**
@@ -59,9 +52,7 @@ class PostsController extends Controller
      */
     public function show($id)
     {
-        $post = Post::find($id);
-        // return view('post.show',['post'=> $post]);
-        return $post;
+        //
     }
 
     /**
@@ -84,12 +75,12 @@ class PostsController extends Controller
      */
     public function update(Request $request)
     {
-        $post = Post ::findOrFail($request -> id);
-        $post ->description = $request -> description;
-        $post ->creator = $request -> creator;
-        $post -> date = $request -> date;
-
-        $post -> save();
+        $comment = Comment::findOrFail($request -> id);
+        $comment -> description = $request -> description;
+        $comment -> img_url = $request -> img_url;
+        $comment -> date = $request -> date;
+        
+        $comment -> save();
     }
 
     /**
@@ -100,7 +91,7 @@ class PostsController extends Controller
      */
     public function destroy($request)
     {
-        $post = Post::destroy($request -> id);
-        return $post;
-    }   
+        $comment = Comment::destroy($request -> id);
+        return $comment;
+    }
 }
