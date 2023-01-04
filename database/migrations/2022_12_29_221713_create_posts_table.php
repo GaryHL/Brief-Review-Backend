@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('description');
             $table->string('creator');
-            $table->string('comments');
+            $table->string('img_post');
             $table->string('date');
             $table->timestamps();
         });

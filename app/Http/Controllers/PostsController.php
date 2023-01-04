@@ -38,6 +38,13 @@ class PostsController extends Controller
     {
         $brief = new Post();
         $brief ->description = $request -> description;
+
+        $file = $request->file('img_post');
+        $destinationPath = 'images/posts/';
+        $filename = time().'-'.$file->getClientOriginalName();
+        $uploadSuccess = $request -> file('img_post') -> move($destinationPath,$filename);
+        
+        $brief ->img_post = $destinationPath.$filename;
         $brief ->creator = $request -> creator;
         $brief -> date = $request -> date;
 
@@ -95,5 +102,5 @@ class PostsController extends Controller
     {
         $post = Post::destroy($request -> id);
         return $post;
-    }
+    }   
 }
