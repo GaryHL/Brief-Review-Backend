@@ -49,6 +49,7 @@ class PostsController extends Controller
         $brief -> date = $request -> date;
 
         $brief -> save();
+        
     }
 
     /**
